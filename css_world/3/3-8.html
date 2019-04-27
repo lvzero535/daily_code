@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 240px;
+      padding: 10px;
+      background-color: #cd0000;
+      text-align: center;
+    }
+    .content {
+      text-align: left;
+      display: inline-block;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p id="conMore" class="content">文字内容</p>
+  </div>
+  <button id="addMore">添加文字</button>
+  <script>
+    var content = document.getElementById('conMore'),
+    btn = document.getElementById('addMore');
+    btn.onclick = function () {
+      content.innerHTML += '-新增文字'
+    }
+  </script>
+</body>
+</html>

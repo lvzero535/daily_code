@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box > span{
+      color: aqua;
+    }
+    #box ~ p {
+      color: blue;
+    }
+    #box + p {
+      border:1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <p>pass 0</p>
+  <div id="box">
+      <span>span 1</span>
+      <span>span 2</span>
+    <p>
+      <span>span 3</span>
+    </p>   
+    <span>span 4</span> 
+  </div>
+  <span>span1</span>
+  <p>pass 1</p>
+  <p>pass 11</p>
+  <div>div
+      <p>inerr pass 1</p>
+  </div>
+  <p>pass 2</p>
+</body>
+</html>

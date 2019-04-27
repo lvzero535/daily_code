@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      background-color: red;
+      padding: 10px;
+      margin-bottom: 50px;
+    }
+    .box > img{
+      float: left;
+    }
+    .clear::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="box clear">
+    <img width="150" height="150" src="../img/girl.jpg">
+  </div>
+  <div class="box">
+      <img width="150" height="150" src="../img/girl.jpg">
+    </div>
+</body>
+</html>
