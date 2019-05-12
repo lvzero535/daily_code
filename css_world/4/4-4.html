@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+    img {
+      display: block;
+      margin: 20px;
+      width: 200px;
+      height: 200px;
+      background-color: aquamarine;
+    }
+    .item1 {
+      object-fit: contain;
+    }
+    .item2 {
+      object-fit: none;
+    }
+    .item3::before {
+      content: 'd'
+    }
+  </style>
+</head>
+<body>
+  
+    <img class="item1" src="../img/1.jpg">
+    <img class="item2" src="../img/1.jpg">
+    <img class="item3" src="../img/1.jpg">
+
+</body>
+</html>

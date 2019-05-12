@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .item {
+      display: block;
+      margin: 20px;
+    }
+    .cw {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <img class="item" src="../img/1.jpg">  
+  <img class="item" src="../img/1.jpg" width="150" height="80">  
+  <img class="item cw" src="../img/1.jpg" width="150" height="80">  
+  <!-- 只设置了宽度，高度按照原来的比例计算了 -->
+  <img class="item" src="../img/1.jpg" width="200">  
+
+</body>
+</html>

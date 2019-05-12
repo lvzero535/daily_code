@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* .counter {
+      counter-reset: xe 2 xs 3;
+      font-size: 32px;
+      color: #cd0000;
+      counter-increment: xe 1;
+    }
+    .counter::before {
+      content: counter(xe);
+      counter-increment: xs 3 xe 1;
+    }
+    
+    .counter::after {
+      content: counter(xe);
+      counter-increment: xe 1;
+    } */
+    .box {
+      counter-increment: xe 1;
+    }
+    .box::after {
+      content: counter(xe)
+    }
+  </style>
+</head>
+<body>
+   
+  <p class="box"></p>
+  <!-- <p class="counter"></p> -->
+</body>
+</html>
