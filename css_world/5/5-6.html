@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      line-height: 32px;
+      /* font-size: 24px; */
+    }
+    .box > span {
+      font-size: 24px;
+      vertical-align: top;
+    }
+
+    .img {
+      width: 280px;
+      outline: 1px solid #aaa;
+      text-align: center;
+    }
+    .img >img {
+      height: 96px;
+    }
+    .img1 {
+      display: block;
+    }
+    .img-1 {
+      line-height: 0;
+    }
+    .img-2 {
+      font-size: 0;
+    }
+    .img2 {
+      vertical-align: bottom;
+    }
+  </style>
+</head>
+<body>
+    <div class="box">
+      <span>文本</span>
+    </div>
+    <div class="img">
+      <img src="../img/1.jpg">
+    </div>
+    <br />
+    <div class="img">
+      <img class="img1" src="../img/1.jpg">
+    </div>
+    <br />
+    <div class="img img-1">
+      <img class="" src="../img/1.jpg">
+    </div>
+    <br />
+    <div class="img img-2">
+      <img class="" src="../img/1.jpg">
+    </div>
+    <br />
+    <div class="img">
+      <img class="img2" src="../img/1.jpg">
+    </div>
+</body>
+</html>

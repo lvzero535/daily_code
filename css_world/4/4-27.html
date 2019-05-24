@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+     border-left: 150px solid #333;
+     background-color: #f0f3f9;
+    }
+    .box::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .box > nav {
+      float: left;
+      width: 150px;
+      margin-left: -150px;
+    }
+    nav {
+      line-height: 40px;
+      color: #fff;
+    }
+    .module {
+      line-height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <nav>
+      <h3>导航</h3>
+      <h3>导航</h3>
+      <h3>导航</h3>
+      <h3>导航</h3>
+      <h3>导航</h3>
+    </nav>
+    <section>
+      <div class="module">模块</div>
+      <div class="module">模块</div>
+      <div class="module">模块</div>
+      <div class="module">模块</div>
+      <div class="module">模块</div>
+      <div class="module">模块</div>
+      <div class="module">模块</div>
+      <div class="module">模块</div>
+      <div class="module">模块</div>
+    </section>
+  </div>
+</body>
+</html>

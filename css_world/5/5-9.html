@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      line-height: 20px;
+      text-align: left;
+      display: inline-block;
+    }
+    .icon {
+      display: inline-block;
+      width: 20px; height: 20px;
+      white-space: nowrap;
+      letter-spacing: -1em;
+      text-indent: -999em;
+      background: url(../img/delete.png) no-repeat center;
+    }
+    .icon::before {
+      content: '\3000'
+    }
+    .large {
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+    <div class="box">
+      <h2>1. 空标签后面跟随文本</h2>
+      <i class="icon"></i>删除
+      <h2>2. 标签里面有“删除”文本</h2>
+      <i class="icon">删除</i>别给我打
+      <h2>3. 字号变大</h2>
+      <p class="large"><i class="icon"></i>别给我打</p>
+      <p class="large"><i class="icon">删除</i>别给我打</p>
+      
+    </div>
+    
+</body>
+</html>

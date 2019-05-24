@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .test1, .test2, test3 {
+      margin: 24px 0;
+      border: 1px solid #ccc;
+      background: #eee;
+    }
+    .test1 {
+      font-size: 16px;
+      line-height: 0;
+    }
+    .test2 {
+      font-size: 0;
+      line-height: 16px;
+    }
+    .test3 {
+      line-height: 90px;
+    }
+    .sp1, .sp2 {
+      border: 1px solid #ccc;
+      width: 20px;
+    }
+    .sp1 {
+      line-height: 20px;
+    }
+    .sp2 {
+      line-height: 50px;
+    }
+    .box {
+      line-height: 120px;
+      width: 280px;
+      background-color: #f0f3f9;
+    /* margin: auto; */
+    }
+    .content {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 20px;
+    }
+  </style>
+</head>
+<body>
+    <div class="test1">我的高度是？</div>
+    <div class="test2">我的高度是？</div>
+    <div class="test3">我的高度是？</div>
+
+    <span class="sp1">高度高度</span><br>
+    <span class="sp2">高度高度</span><br>
+
+    <div class="box">
+      <div class="content">基于行高实现的多行文字垂直居中效果，需要vertical-align属性帮助。</div>
+    </div>
+</body>
+</html>

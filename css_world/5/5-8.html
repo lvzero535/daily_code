@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      text-align: justify;
+      background: aquamarine;
+      width: 350px;
+    }
+    .justify-fix {
+      display: inline-block;
+      width: 96px;
+    }
+    /* 测试与示意 */
+    .box-1 .justify-fix,
+    .box-2 .justify-fix,
+    .box-3 .justify-fix,
+    .box-4 .justify-fix {
+        outline: 1px dashed red;
+    }
+    .box-2 {
+      line-height: 0;
+    }
+    .box-3 {
+      font-size: 0;
+    }
+    .box-4 {
+      line-height: 0;
+    }
+  </style>
+</head>
+<body>
+    <div class="box">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <i class="justify-fix"></i>
+      <i class="justify-fix"></i>
+      <i class="justify-fix"></i>
+    </div>
+    <br>
+    <div class="box box-1">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <i class="justify-fix"></i>
+      <i class="justify-fix"></i>
+      <i class="justify-fix"></i>
+    </div>
+    <br>
+    <div class="box box-2">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <i class="justify-fix"></i>
+      <i class="justify-fix"></i>
+      <i class="justify-fix"></i>
+      x-baseline
+    </div>
+    <br>
+    <div class="box box-3">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <i class="justify-fix"></i>
+      <i class="justify-fix"></i>
+      <i class="justify-fix"></i>
+    </div>
+    <br>
+    <div class="box box-4">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <img src="../img/1.jpg" width="96">
+      <i class="justify-fix">&nbsp;</i>
+      <i class="justify-fix">&nbsp;</i>
+      <i class="justify-fix">&nbsp;</i>
+    </div>
+    
+</body>
+</html>

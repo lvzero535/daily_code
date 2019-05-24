@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 150px;
+      height: 150px;
+      border: solid;
+      display: inline-block;
+    }
+    .dashed {
+      border: 50px dashed;
+    }
+    .dot {
+      border:50px dotted;
+    }
+    .double {
+      border: double;
+    }
+    .menu {
+      border-top: 12px double;
+      border-bottom: 4px solid;
+      height: 4px;
+      width: 20px;
+      color: black;
+      display: inline-block;
+    }
+    .menu-c{
+      border-left: 12px double;
+      height: 20px;
+      width: 4px;
+      border-right: 4px solid;
+      color: black;
+      display: inline-block;
+    }
+    .add {
+      display: inline-block;
+      width: 76px; height: 76px;
+      color: #ccc;
+      border: 2px dashed;
+      text-indent: -12em;
+      transition: color .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .add:hover {
+      color: #34538b;
+    }
+    .add::before, .add::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+    }
+    .add::before {
+      width: 20px;
+      border-top: 4px solid;
+      margin: -2px 0 0 -10px;
+    }
+    .add::after {
+      height: 20px;
+      border-left: 4px solid;
+      margin: -10px 0 0 -2px;
+    }
+
+    input[type="search"] {
+      width: 200px; height: 40px;
+      padding: 10px 40px 10px 10px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    .icon-clear {
+      width: 16px; height: 16px;
+      border: 11px solid transparent;
+      margin: 1px 0 0 -38px;
+      border-radius: 50%;
+      background: #999;
+      color: white;
+      position: absolute;
+      background-clip: padding-box;
+      line-height: 15px;
+      text-align: center;
+      visibility: hidden; 
+    }
+    .icon-clear::before {
+      content: 'x';
+    }
+    input:valid + .icon-clear {
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box dashed"></div>
+  <div class="box dot"></div>
+  <div class="box double"></div>
+  <div class="menu"></div>
+  <div class="menu-c"></div>
+
+  <a href class="add" title="继续上传"> 添加图片</a><br>
+
+  <input id="search" type="search" value="我是初始值" required>
+  <label for="search" class="icon-clear"></label>
+</body>
+</html>
