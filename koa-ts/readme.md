@@ -32,7 +32,7 @@ npm install nodemon ts-node typescript -D
 
 ### 代码实现
 
-第一步，连接数据库，启动服务监制商品，连接是全局的，详情看 [https://github.com/typeorm/typeorm](https://github.com/typeorm/typeorm)
+第一步，连接数据库，启动服务监听端口，连接是全局的，详情看 [https://github.com/typeorm/typeorm](https://github.com/typeorm/typeorm)
 
 ```typescript
 import * as Koa from 'koa';
