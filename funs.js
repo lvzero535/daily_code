@@ -24,5 +24,21 @@ const func = {
     intersect(arr1, arr2) {
         let a = new Set(arr2)
         return [...new Set(arr1.filter(x => a.has(x)))];
+    },
+
+    /**
+     * 
+     * @param {Array} arr 对象数组
+     * @param {any} label 对象的要去重的字段
+     */
+    unqiue(arr, label) {
+        let temp = [], tempLabel = [];
+        for(var i=0; i<arr.length; i++) {
+            if(!tempLabel.includes(arr[i][label])) {
+                temp.push(arr[i]);
+                tempLabel.push(arr[i][label]);
+            }
+        }
+        return temp;
     }
 }

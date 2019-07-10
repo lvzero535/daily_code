@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .dt-container {
+      margin: 0 auto;
+      width: 400px; height: 400px;
+      background-color: #e2e2e2;
+      border-radius: 3px;
+      padding: 10px;
+    }
+    .dt-top-bar {
+      text-align: justify;
+      text-align-last: justify;
+    }
+    .dt-top-bar::after {
+      content: '';
+      display: block;
+      width: 100%
+    }
+    .dt-top-bar > span {
+      display: inline-block;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      vertical-align: middle;
+    }
+    .dt-icon-left {
+      background-image: url(./img/left.svg);
+      width: 40px; height: 40px;
+      background-size: 100%;
+    }
+    .dt-icon-right {
+      background-image: url(./img/right.svg);
+      width: 40px; height: 40px;
+      background-size: 100%;
+    }
+    .dt-icon-dleft {
+      background-image: url(./img/doubleleft.svg);
+      width: 40px; height: 40px;
+      background-size: 100%;
+    }
+    .dt-icon-dright {
+      background-image: url(./img/doubleright.svg);
+      width: 40px; height: 40px;
+      background-size: 100%;
+    }
+    .dt-year-month {
+      width: 100px;
+      line-height: 40px;
+      padding: 0 30px;
+    }
+    .dt-weeks {
+      margin-top: 5px;
+      text-align: justify;
+      text-align-last: justify;
+    }
+    .dt-weeks::after {
+      content: '';
+      width: 100%;
+      display: inline-block;
+    }
+    .dt-weeks > span {
+      display: inline-block;
+      border: 1px solid #aaa;
+      width: 50px; height: 50px;
+      line-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dt-container">
+    <div onclick="clickFn(event)" class="dt-top-bar">
+      <span id="preYear" class="dt-icon-dleft"></span>
+      <span id="preMonth" class="dt-icon-left"></span>
+      <span id="yearMonth" class="dt-year-month">2019年05月</span>
+      <span id="nextMonth" class="dt-icon-right"></span>
+      <span id="nextYear" class="dt-icon-dright"></span>
+    </div>
+    <div class="dt-weeks">
+        <span>日</span>
+        <span>一</span>
+        <span>二</span>
+        <span>三</span>
+        <span>四</span>
+        <span>五</span>
+        <span>六</span>
+    </div>
+    <div id="dt-days" class="dt-weeks">
+
+    </div>
+  </div>
+  <script src="./datetime.js"></script>
+  <script>
+    var date = new Date();
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    var d = date.getDate();
+    function nextMonth () {
+      
+    }
+    function clickFn(event) {
+      var id = event.target.id;
+      if(id === 'preYear') {
+        render(y - 1, m, d);
+      } else if (id === 'preMonth') {
+        render(y, m - 1, d);
+      } else if (id === 'nextMonth') {
+        render(y, m + 1, d);
+      } else if (id === 'nextYear') {
+        render(y + 1, m, d);
+      }
+    }
+    function render(year, month, day) {
+      var len = getCurrYearDaysOfMonth(month);
+      var blank = getWeekOfDays(year, month, 1);
+      var dtDays = document.getElementById('dt-days');
+      var str = ''
+      for(var j=0; j<blank; j++) {
+        str += '<span style="height: 0;border:0;">&nbsp;</span> '
+      }
+      for(var i=0; i<len; i++) {
+        str += '<span class="">'+(i+1)+'</span> '
+      }
+      for(var i=0; i<7; i++) {
+        str += '<span style="height: 0;border:0;">&nbsp;</span> '
+      }
+      dtDays.innerHTML = str;
+    }
+    render(y, m, d)
+  </script>
+</body>
+</html>

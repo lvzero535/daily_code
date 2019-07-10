@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+<body>
+  <div id="box" class="box jp">
+    sss
+  </div>
+  <script>
+    function $(id) {
+      return document.getElementById(id);
+    }
+    function hasClass(elem, className) {
+      return elem.className.split(' ').includes(className)
+    }
+    function removeClass(elem, className) {
+      elem.className = elem.className.split(' ').filter(cn => cn !== className).join(' ');
+      return elem;
+    }
+    function toggleClass(elem, className) {
+      if(hasClass(elem, className)) {
+        removeClass(elem, className);
+      } else {
+        elem.className += ' ' + className;
+      } 
+      return elem;
+    }
+    console.log(hasClass($('box'), ' '))
+    console.log(removeClass($('box'), 'jpss'))
+    console.log(toggleClass($('box'), 'jp'))
+  </script>
+</body>
+</html>

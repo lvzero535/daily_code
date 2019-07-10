@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .dt-container {
+      margin: 0 auto;
+      border-radius: 3px;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      display: inline-block;
+      width: 284px;
+    }
+    .dt-top-bar {
+      line-height: 28px;
+      position: relative;
+    }
+    .dt-icon-dleft {
+      width: 28px; height: 28px;
+      display: inline-block;
+      background-image: url(./img/doubleleft.svg);
+      background-size: 100%;
+    }
+
+    .dt-icon-left {
+      width: 28px; height: 28px;
+      display: inline-block;
+      background-image: url(./img/left.svg);
+      background-size: 100%;
+    }
+    .dt-icon-dright {
+      width: 28px; height: 28px;
+      display: inline-block;
+      background-image: url(./img/doubleright.svg);
+      background-size: 100%;
+    }
+
+    .dt-icon-right {
+      width: 28px; height: 28px;
+      display: inline-block;
+      background-image: url(./img/right.svg);
+      background-size: 100%;
+    }
+    .dt-pre {
+      position: absolute;
+      top: 0; left: 0;
+    }
+    .dt-next {
+      position: absolute;
+      top: 0; right: 0;
+    }
+    .dt-show-year-month {
+      margin: 0 66px;
+      border: 1px solid #cccccc;
+      width: 150px;
+      text-align: center;
+    }
+    .dt-row {
+      margin: 5px 0;
+      background-color: #cccccc;
+      line-height: 28px;
+      font-size: 0;
+    }
+    .dt-row > span {
+      width: 14.28%;
+      display: inline-block;
+      text-align: center;
+      font-size: 16px;
+      line-height: 28px;
+      vertical-align: top;
+    }
+    #dt-days {
+      background-color: white;
+    }
+    .current-day {
+      background-color: #1be770;
+    }
+    .active-day:hover {
+      cursor: pointer;
+      background-color: #61e799;
+    }
+    .active {
+      background-color: #6361e7;
+    }
+    .btn-click:hover {
+      cursor: pointer;
+      background-color: #9cc1ec;
+    }
+    .not-current-mth {
+      color: #999;
+    }
+    .not-current-mth:hover {
+      cursor:not-allowed;
+    }
+    .dt-selected-year-month {
+      display: none;
+    }
+    .year-month-cell {
+      width: 25%;
+      display: inline-block;
+      text-align: center;
+      font-size: 16px;
+      line-height: 58px;
+      vertical-align: top;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="dt-container">
+    <!-- 顶头 -->
+    <div onclick="changeDate(event)" class="dt-top-bar">
+      <div class="dt-pre">
+          <span id="preYear" class="dt-icon-dleft btn-click"></span>
+          <span id="preMonth" class="dt-icon-left btn-click"></span>
+      </div>
+      <div id="yearMonth" class="dt-show-year-month btn-click">
+          2019年05月
+      </div>
+      <div class="dt-next">
+          <span id="nextMonth" class="dt-icon-right btn-click"></span>
+          <span id="nextYear" class="dt-icon-dright btn-click"></span>
+      </div>
+    </div>
+    <!-- 星期 和 天 的显示 -->
+    <div id="showWeekDay" class="dt-week-days">
+      <div class="dt-row">
+        <span>日</span>
+        <span>一</span>
+        <span>二</span>
+        <span>三</span>
+        <span>四</span>
+        <span>五</span>
+        <span>六</span>
+      </div>
+      <div onclick="clickFn(event)" id="dt-days" class="dt-row"></div>
+    </div>
+
+    <!-- 选择 年 月 -->
+    <div id="selectYearMonth" class="dt-selected-year-month"></div>
+
+    <button onclick="today()">today</button>
+  </div>
+  <script src="./datetime.js"></script>
+  <script src="./utils.js"></script>
+  <script>
+    var dateInfo = (function() {
+      var date = new Date();
+      var _year = date.getFullYear();
+      var _month = date.getMonth() + 1;
+      var _day = date.getDate();
+      return {
+        year: _year,
+        month: _month,
+        day: _day,
+        preYear() {
+          this.year--;
+          return this;
+        },
+        preMonth() {
+          if( this.month === 1) {
+            date.setMonth(-1);
+            this.month = 12;
+            this.year = date.getFullYear();
+          } else {
+            this.month--;
+          }
+          return this;
+        },
+        nextMonth() {
+          if(this.month === 12) {
+            date.setMonth(12);
+            this.month = 1;
+            this.year = date.getFullYear();
+          } else {
+            this.month ++;
+          }
+          return this;
+        },
+        nextYear() {
+          this.year++;
+          return this;
+        },
+        today() {
+          this.year = _year;
+          this.month = _month;
+          return this;
+        }
+      }
+    })();
+    function render(dateInfo) {
+      var str = renderContent(dateInfo.year, dateInfo.month, dateInfo.day);
+      document.getElementById('dt-days').innerHTML = str;
+      document.getElementById('yearMonth').innerHTML = dateInfo.year + '年' + dateInfo.month + '月';
+    }
+    function selectShow() {
+      $('showWeekDay').style.display = 'none';
+      var selectYearMonth =  $('selectYearMonth');
+      selectYearMonth.style.display = 'block';
+      var str = '';
+      for(var i=0; i<12; i++) {
+        str += '<span class="year-month-cell">'+(i+1)+'月</span>';
+      }
+      selectYearMonth.innerHTML = str;
+    }
+    function changeDate(event) {
+      var id = event.target.id;
+      if (id === 'yearMonth') {
+        selectShow();
+        return;
+      }
+      render(dateInfo[id]());
+    }
+    render(dateInfo);
+
+    function today() {
+      render(dateInfo.today());
+    }
+
+    var toggleClazz = (function(){
+      var curr;
+      return function(elem, cn) {
+        if(curr) {
+          removeClass(curr, cn);
+        } 
+        curr = elem;
+        toggleClass(elem, cn);
+      }
+    })();
+    
+    function clickFn(evt) {
+      var el = evt.target, dataset = el.dataset;
+      if(dataset.type === 'current') {
+        if(!hasClass(el, 'current-day')) {
+          toggleClazz(el, 'active');
+        }
+      } else {
+        render(dateInfo[dataset.type]());
+        toggleClazz($('current'+dataset.day), 'active');
+      }
+      
+      console.log(dateInfo.year+'-'+ dateInfo.month+'-'+ dataset.day)
+    }
+  </script>
+</body>
+</html>
