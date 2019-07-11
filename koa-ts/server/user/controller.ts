@@ -1,13 +1,19 @@
 import { BaseContext } from "koa";
 import UserService from "./service";
 import User from "../entities/user";
+import Util from "../utils/util";
 
 export default class UserController {
 
   public static async getUsers(ctx: BaseContext) {
-    const users: User[] = await UserService.getUsers()
+    const querys = ctx.query;
+    const username = querys.username;
+    const limit = Util.toInteger(querys.pageSize, 5);
+    const offset = (Util.toInteger(querys.pageNum, 1) -1) * limit;
+    
+    const [users, total] = await UserService.getUsers({offset, limit, username})
     ctx.status = 200;
-    ctx.body = users;
+    ctx.body = {users, total};
   }
 
   public static async getUserById(ctx: BaseContext) {
@@ -17,6 +23,7 @@ export default class UserController {
   
   public static async addUser(ctx: BaseContext) {
     const user: User = ctx.request.body;
+    console.log(ctx.request.body);
     ctx.status = 200; 
     ctx.body = await UserService.addAndUpdateUser(user);
   }
@@ -38,7 +45,7 @@ export default class UserController {
       ctx.status = 400;
       ctx.body = 'user is not exists!'
     } else {
-      ctx.status = 200; 
+      ctx.status = 204; 
       await UserService.deleteUser(findUser);
     }
   }

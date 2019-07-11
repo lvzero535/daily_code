@@ -6,8 +6,11 @@ export default class UserService {
     return getRepository(User);
   }
 
-  public static async getUsers() {
-    return this.repositoryUser().find();
+  public static async getUsers({offset = 0, limit = 5, username = ''}) {
+    return this.repositoryUser()
+            .createQueryBuilder('user')
+            .where('user.username like :name', {name: `%${username}%`})
+            .skip(offset).take(limit).getManyAndCount();
   }
 
   public static async getUserById(id: string) {
