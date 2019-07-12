@@ -8,9 +8,7 @@ export default class UserController {
   public static async getUsers(ctx: BaseContext) {
     const querys = ctx.query;
     const username = querys.username;
-    const limit = Util.toInteger(querys.pageSize, 5);
-    const offset = (Util.toInteger(querys.pageNum, 1) -1) * limit;
-    
+    const [offset, limit] = Util.toPageParams(querys);
     const [users, total] = await UserService.getUsers({offset, limit, username})
     ctx.status = 200;
     ctx.body = {users, total};
